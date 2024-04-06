@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const GuessInput = ({ onSubmit }) => {
+const GuessInput = ({ onSubmit, disabled }) => {
   const [guess, setGuess] = useState('');
 
   return (
@@ -20,6 +20,7 @@ const GuessInput = ({ onSubmit }) => {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
+        disabled={disabled}
         type="text"
         required
         minLength={5}

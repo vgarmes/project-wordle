@@ -1,10 +1,17 @@
 import { range } from '../utils';
-const Guess = ({ value }) => {
+import { checkGuess } from '../game-helpers';
+
+const Guess = ({ tentativeGuess, answer }) => {
+  const result = checkGuess(tentativeGuess, answer);
+
   return (
-    <p class="guess">
+    <p className="guess">
       {range(5).map((num) => (
-        <span key={num} class="cell">
-          {value ? value[num] : null}
+        <span
+          key={num}
+          className={result ? `cell ${result[num].status}` : 'cell'}
+        >
+          {tentativeGuess ? tentativeGuess[num] : null}
         </span>
       ))}
     </p>
